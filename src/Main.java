@@ -109,38 +109,37 @@ public class Main {
 		
 		
 		
-		
-		BrowsingHistory browsingHistory = new BrowsingHistory ();
-		browsingHistory . add (" https :// www . google1 . com /" );
-		browsingHistory . add (" http :// www . youtube . com /" );
-		browsingHistory . add (" https :// www . google . com /" );
-		System . out . println (" Currect ␣ browsing  history :" );
-		browsingHistory . printHistory ();
-		//System . out . println (" Most ␣ viewed ␣ so ␣ far ␣ is ␣" + browsingHistory . search ());
-		browsingHistory . removeLast (" 2014 -10 -07 " );
-		System . out . println (" Currect ␣ browsing ␣ history :" );
-		browsingHistory . printHistory ();
-		browsingHistory . add (" http :// www . facebook . com / " );
-		browsingHistory . add (" http :// www . youtube . com /" );
-		browsingHistory . add (" https :// www . google . com /" );
-		browsingHistory . add (" http :// met . guc . edu . eg /" );
-		browsingHistory . add (" http :// www . youtube . com /" );
-		browsingHistory . add (" http :// met . guc . edu . eg /" );
-		browsingHistory . add (" http :// met . guc . edu . eg /" );
-		System . out . println (" Currect ␣ browsing ␣ history :" );
-		browsingHistory . printHistory ();
-		System . out . println (" Most ␣ viewed ␣ so ␣ far ␣ is ␣" + browsingHistory . search ());
-		browsingHistory . removeLast ();
-		browsingHistory . removeLast ();
-		System . out . println (" Currect ␣ browsing ␣ history :" );
-		browsingHistory . printHistory ();
-		System . out . println (" Most ␣ viewed ␣ so ␣ far ␣ is ␣" + browsingHistory . search ());
-		
-		
+//		
+//		BrowsingHistory browsingHistory = new BrowsingHistory ();
+//		browsingHistory . add (" https :// www . google1 . com /" );
+//		browsingHistory . add (" http :// www . youtube . com /" );
+//		browsingHistory . add (" https :// www . google . com /" );
+//		System . out . println (" Currect ␣ browsing  history :" );
+//		browsingHistory . printHistory ();
+//		//System . out . println (" Most ␣ viewed ␣ so ␣ far ␣ is ␣" + browsingHistory . search ());
+//		browsingHistory . removeLast (" 2014 -10 -07 " );
+//		System . out . println (" Currect ␣ browsing ␣ history :" );
+//		browsingHistory . printHistory ();
+//		browsingHistory . add (" http :// www . facebook . com / " );
+//		browsingHistory . add (" http :// www . youtube . com /" );
+//		browsingHistory . add (" https :// www . google . com /" );
+//		browsingHistory . add (" http :// met . guc . edu . eg /" );
+//		browsingHistory . add (" http :// www . youtube . com /" );
+//		browsingHistory . add (" http :// met . guc . edu . eg /" );
+//		browsingHistory . add (" http :// met . guc . edu . eg /" );
+//		System . out . println (" Currect ␣ browsing ␣ history :" );
+//		browsingHistory . printHistory ();
+//		System . out . println (" Most ␣ viewed ␣ so ␣ far ␣ is ␣" + browsingHistory . search ());
+//		browsingHistory . removeLast ();
+//		browsingHistory . removeLast ();
+//		System . out . println (" Currect ␣ browsing ␣ history :" );
+//		browsingHistory . printHistory ();
+//		System . out . println (" Most ␣ viewed ␣ so ␣ far ␣ is ␣" + browsingHistory . search ());
 		
 		
 		
 		
+
 		
 		
 		
