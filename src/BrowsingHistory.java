@@ -21,10 +21,10 @@ public class BrowsingHistory {
 	}
 	public void removeLast(String date) {
 		
-		Link l= null ;
+		Links l= null ;
 
 		while(!history.isEmpty()){
-			l= ( Link ) history . pop ();
+			l= ( Links ) history . pop ();
 			if (! l.date.equals ( date )){
 				temp.push(l);
 				
@@ -48,9 +48,9 @@ public class BrowsingHistory {
 	public String search (){
 		String max_so_far = "";
 		int max_frequency =0;
-		Link l= null ;
+		Links l= null ;
 		while (! history . isEmpty ()){
-		l= ( Link ) history . pop ();
+		l= ( Links ) history . pop ();
 		if (l. frequency > max_frequency ){
 		max_frequency =l. frequency ;
 		max_so_far =l. url ;

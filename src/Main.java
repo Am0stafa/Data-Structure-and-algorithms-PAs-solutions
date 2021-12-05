@@ -4,6 +4,7 @@ public class Main {
 	public static void main(String[] args) {
 
 		
+		
 //		LinearArray a = new LinearArray(10);
 //		a.insertLast(3);
 //		a.insertLast(7);
@@ -142,14 +143,22 @@ public class Main {
 
 		
 		
+		LinkList a = new LinkList();
+		a.insertFirst(1);
+		a.insertFirst(2);
+		a.insertFirst(3);
+		a.insertFirst(4);
+		a.insertFirst(5);
+		a.insertFirst(6);
+		a.insertFirst(7);
+		
+		System.out.println(a);
 		
 		
+		a.Revese();
 		
-		
-		
-		
-		
-		
+		System.out.println(a);
+
 		
 		
 		
@@ -158,6 +167,14 @@ public class Main {
 		
 	}
 	
+	
+	public static LinkList reverse1(LinkList list) {
+		LinkList temp = new LinkList();
+		while(!list.isEmpty())
+			temp.insertFirst(temp.removeLast());
+		
+		return temp;
+	}
 	
 	
 //	public static QueueObj reverse(QueueObj a) {
@@ -537,10 +554,7 @@ public class Main {
 
 	
 	
-	
-	
-	
-	
+
 	
 	
 	

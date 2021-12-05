@@ -1,5 +1,6 @@
 import java.util.Date;
 
+@SuppressWarnings("rawtypes")
 public class YoghurtProduct implements Comparable {
 	public int id;
 	public double originalPrice;
@@ -27,3 +28,4 @@ public class YoghurtProduct implements Comparable {
 	
 	
 }
+ 

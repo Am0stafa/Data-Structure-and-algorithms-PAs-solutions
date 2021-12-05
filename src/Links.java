@@ -1,11 +1,11 @@
 import java . text . SimpleDateFormat ;
 import java . util . Calendar ;
 import java . util . Date ;
-class Link {
+class Links {
 String url ;
 String date ; // Format YYYY -MM - DD
 int frequency ; // number of times a url has been visited
-public Link ( String url ) {
+public Links ( String url ) {
 this . url = url ;
 this . frequency = 0;
 // gets the current date
@@ -20,7 +20,7 @@ catch ( Exception e ){
 e. printStackTrace ();
 }
 }
-public Link ( String url , int frequency ) {
+public Links ( String url , int frequency ) {
 this ( url );
 this . frequency = frequency ;
 }
