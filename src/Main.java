@@ -153,28 +153,64 @@ public class Main {
 		a.insertFirst(7);
 		
 		System.out.println(a);
+
+		LinkList b = new LinkList();
+		b= mix(a);
 		
-		
-		a.Revese();
-		
-		System.out.println(a);
+		System.out.println(b);
 
 		
 		
 		
 		
 		
-		
 	}
 	
-	
-	public static LinkList reverse1(LinkList list) {
-		LinkList temp = new LinkList();
-		while(!list.isEmpty())
-			temp.insertFirst(temp.removeLast());
+public static LinkList mix(LinkList x) {
+	LinkList temp = new LinkList();
+		Object a;
+		Object b;
+	while(!x.isEmpty()) {
+	a = x.removeFirst();
+		if(!x.isEmpty()) {
+			b=x.removeLast();
+		temp.insertLast(b);
+		temp.insertLast(a);
 		
-		return temp;
+		}else
+			temp.insertLast(a);
+		
 	}
+	return temp;
+	
+}
+	
+	
+//	public static LinkList reverse1(LinkList list) {
+//		LinkList temp = new LinkList();
+//		while(!list.isEmpty())
+//			temp.insertFirst(temp.removeLast());
+//		
+//		return temp;
+//	}
+	
+//	public static LinkList removedup(LinkList list) {
+//		LinkList temp = new LinkList();
+//	
+//	temp.insertLast(list.removeFirst());
+//	
+//	
+//	 while(!list.isEmpty()){
+//	
+//		if(list.getFirst().equals(temp.getLast())) 
+//			list.removeFirst();
+//		else
+//			temp.insertLast(list.removeFirst()); 
+//	 						}
+//		
+//		
+//		return temp;
+//	}
 	
 	
 //	public static QueueObj reverse(QueueObj a) {
