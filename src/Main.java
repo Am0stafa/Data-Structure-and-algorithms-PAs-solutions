@@ -148,42 +148,77 @@ public class Main {
 		a.insertFirst(2);
 		a.insertFirst(3);
 		a.insertFirst(4);
-		a.insertFirst(5);
-		a.insertFirst(6);
-		a.insertFirst(7);
+//		a.insertFirst(5);
+//		a.insertFirst(6);
+//		a.insertFirst(7);
 		
 		System.out.println(a);
+		System.out.println();
 
-		LinkList b = new LinkList();
-		b= mix(a);
-		
-		System.out.println(b);
-
-		
-		
-		
+	
 		
 		
 	}
 	
-public static LinkList mix(LinkList x) {
+	
+public static void frontBackSplit(LinkList list)
+{
+	int count = 0;
 	LinkList temp = new LinkList();
-		Object a;
-		Object b;
-	while(!x.isEmpty()) {
-	a = x.removeFirst();
-		if(!x.isEmpty()) {
-			b=x.removeLast();
-		temp.insertLast(b);
-		temp.insertLast(a);
-		
-		}else
-			temp.insertLast(a);
-		
+	while (!list.isEmpty()) {
+	temp.insertLast(list.removeFirst());
+	count++;
 	}
-	return temp;
+	LinkList subList1 = new LinkList();
+	LinkList subList2 = new LinkList();
+	
+	if(count%2 == 0){
+		for(int i=0; i<count/2; i++) 
+			subList1.insertLast(temp.removeFirst());
+			
+		for(int i=count/2; i<count-1; i++) 
+			subList2.insertLast(temp.removeFirst());	
+	}
+	
+	else {
+		for(int i=0; i<count/2; i++) 
+			subList1.insertLast(list.removeFirst());
+			
+		for(int i=count/2; i<count; i++) 
+			subList2.insertLast(list.removeFirst());
+	}
+	
+
+	
+	System.out.print("First sublist:");
+	System.out.print(subList1.toString()+" ");
+	System.out.print("Second sublist: ");
+	System.out.print(subList2.toString()+" ");
+	
+	
+	//remove every thing put it back to the list
+	
 	
 }
+	
+//public static LinkList mix(LinkList x) {
+//	LinkList temp = new LinkList();
+//		Object a;
+//		Object b;
+//	while(!x.isEmpty()) {
+//	a = x.removeFirst();
+//		if(!x.isEmpty()) {
+//			b=x.removeLast();
+//		temp.insertLast(b);
+//		temp.insertLast(a);
+//		
+//		}else
+//			temp.insertLast(a);
+//		
+//	}
+//	return temp;
+//	
+//}
 	
 	
 //	public static LinkList reverse1(LinkList list) {
