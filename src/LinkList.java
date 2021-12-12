@@ -131,4 +131,43 @@ class LinkList {
 //	
 //	}
 	
+public LinkList merge(LinkList l){
+	LinkList o=new LinkList();
+	o.head=head;
+	Link current=head;
+	while(current.next!=null)
+	current=current.next;
+	current.next=l.head;
+	return o;
+	}
+
+	
+	
+	public void insertatN(int pos , Object data ) {
+		int poss =pos-2;
+		Link ncurr, curr;
+		Link newlink  = new Link(data);
+		if(pos==1) {
+			newlink.next = head;
+			head = newlink;
+	
+		}
+		else{
+			
+			curr=head;
+			ncurr=head;
+			while(poss>-1){
+				curr=ncurr;
+				ncurr = curr.next;
+				poss--;
+			}
+			
+			curr.next = newlink;
+			newlink.next = ncurr;	
+			
+		}
+		
+		
+	}
+	
 }
