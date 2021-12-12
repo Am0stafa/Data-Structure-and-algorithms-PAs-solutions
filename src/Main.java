@@ -143,20 +143,25 @@ public class Main {
 
 		
 		
+		
 		LinkList a = new LinkList();
-		a.insertFirst(1);
-		a.insertFirst(2);
-		a.insertFirst(3);
-		a.insertFirst(4);
-//		a.insertFirst(5);
-//		a.insertFirst(6);
-//		a.insertFirst(7);
+		a.insertLast(1);
+		a.insertLast(2);
+		a.insertLast(3);
+		a.insertLast(5);
+		a.insertLast(6);
+		a.insertLast(7);
 		
-		System.out.println(a);
-		System.out.println();
+		a.insertatN(4, 4);
 
-	
+		System.out.println (a);
 		
+		LinkList b = new LinkList();
+	
+		b.insertFirst(5);
+		b.insertFirst(6);
+		b.insertFirst(7);
+			
 		
 	}
 	
