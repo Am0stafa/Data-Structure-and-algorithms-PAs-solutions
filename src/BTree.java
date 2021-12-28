@@ -178,7 +178,6 @@ class BTree {
 		
 		int mid = (lower+upper)/2;
 		Node ras = new Node(a[mid]);
-		System.out.println(mid+" " +a[mid]);
 		ras.left = helper(a, lower, mid-1);
 		ras.right = helper(a,mid+1 , upper);
 		return ras;
@@ -198,5 +197,24 @@ class BTree {
 		//if(current.data.compareTo(max))
 		
 	}
+	public int level(Comparable key) {
+		return level(root, key);
+	}
+
+	public int level(Node cur, Comparable key) {
+		if(cur == null)
+			return -1;
+		if(cur.data.compareTo(key)==0)
+			return 0;
+		int leftDepth = level(cur.left, key);
+		if(leftDepth != -1){
+			//System.out.println(leftDepth);
+			return 1 + leftDepth;}
+		int rightDepth = level(cur.right, key);
+		if(rightDepth != -1)
+			return 1 + rightDepth;
+		return -1;
+	}
+
 
 }

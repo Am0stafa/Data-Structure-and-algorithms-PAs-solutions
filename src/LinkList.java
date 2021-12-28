@@ -105,31 +105,23 @@ class LinkList {
 		
 	}
 	
-	
-//	public void cutList(){
-//		if (head==null)
-//		return;
-//
-//		//get the size of the list
-//		int counter=0;
-//		Link curr = head;
-//		Link prev = null;
-//		while(curr!=null) {
-//			counter++;
-//			curr= curr.next;
-//		}
-//		curr= head;
-//		
-//		
-//			for(int i=((counter/2)+1); i<counter; i++) {
-//			
-//			
-//		}
-//		
-//	
-//	
-//	
-//	}
+	public void cutList(){
+		if (head==null)
+		return;
+
+		//get the size of the list
+		int counter=0;
+		Link curr = head;
+		Link prev = null;
+		while(curr.next!=null) {
+			counter++;
+			curr= curr.next;
+		}
+		System.out.println(head.data);
+		System.out.println(curr.data);
+
+
+	}
 	
 public LinkList merge(LinkList l){
 	LinkList o=new LinkList();
