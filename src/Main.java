@@ -155,11 +155,15 @@ public class Main {
 //		b.insertFirst(6);
 //		b.insertFirst(7);
 
-
+int array[] = {1,2,3,4,5,6};
 
 		//hello from intellij
-		System.out.println("i am working");
+		BTree a = new BTree();
 
+		a = a.idealTopology(array);
+		a.displayTree();
+		
+		
 	}
 	
 
