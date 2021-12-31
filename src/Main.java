@@ -154,12 +154,12 @@ public class Main {
 //		b.insertFirst(5);
 //		b.insertFirst(6);
 //		b.insertFirst(7);
-	int array[] = {1,2,3,4,5,6,7,8,9,10};
+	int array[] = {1,2,3,4,5,6,7,8,9,90};
 		BTree a = new BTree();
 		a =	a.idealTopology(array);
-		//a.displayTree();
-		System.out.println(a.level(1));
-
+		a.displayTree();
+		//System.out.println (a.isBST());
+		
 	}
 	
 
