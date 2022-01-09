@@ -1,13 +1,13 @@
 class Node{
 
-	public Comparable<Object> data;
+	public int data;
 	public Node left,right;
 
-	public Node (Comparable data){
+	public Node (int data){
 		this(data, null, null);
 	}
 
-	public Node(Comparable data, Node left, Node right){
+	public Node(int data, Node left, Node right){
 
 		this.data = data;
 		this.left = left;
@@ -22,10 +22,10 @@ class BTree {
 	}
 
 
-	public void add(Comparable key) {
+	public void add(int key) {
 		Node current = root, parent = null;
 		while (current != null) {
-			if (key.compareTo(current.data) < 0) {
+			if (key<current.data) {
 				parent = current;
 				current = current.left;
 			}
@@ -40,7 +40,7 @@ class BTree {
 			root = new Node(key);
 
 		else {
-			if (key.compareTo(parent.data) < 0)
+			if (key<parent.data)
 				parent.left = new Node(key);
 
 			else
@@ -48,15 +48,16 @@ class BTree {
 		}
 	}
 
-	public boolean delete(Comparable key) {
+	public boolean delete(int key) {
         if (root == null)
                return false;
         Node current = root;
         Node parent = root;
         boolean right = true;
         // searching for the node to be deleted
-        while (key.compareTo(current.data) != 0) {  
-               if (key.compareTo(current.data) < 0) {         right = false;
+        while ((key != current.data)) {
+               if (key<current.data) {
+               			right = false;
                      parent = current;
                      current = current.left;
                } else {
@@ -197,14 +198,14 @@ class BTree {
 		//if(current.data.compareTo(max))
 		
 	}
-	public int level(Comparable key) {
+	public int level(int key) {
 		return level(root, key);
 	}
 
-	public int level(Node cur, Comparable key) {
+	public int level(Node cur, int key) {
 		if(cur == null)
 			return -1;
-		if(cur.data.compareTo(key)==0)
+		if(cur.data == key)
 			return 0;
 		int leftDepth = level(cur.left, key);
 		if(leftDepth != -1){
@@ -216,5 +217,42 @@ class BTree {
 		return -1;
 	}
 
+	public int getSum(){
+		return getSumHelper(root);
+
+
+	}
+	private int getSumHelper(Node current){
+		if(current == null)
+			return 0;
+
+		return current.data + getSumHelper(current.left) + getSumHelper(current.right);
+
+	}
+	public int numberOfNodes(){
+		return numberOfNodesHelper(root);
+
+	}
+	private int numberOfNodesHelper(Node current){
+		if(current == null)
+			return 0;
+		return 1+ numberOfNodesHelper(current.left)+ numberOfNodesHelper(current.right);
+	}
+
+
+	public int numOfLeaves(){
+		return numberOfNodesHelper(root);
+
+	}
+	private int numOfLeavesHelper(Node current){
+		if(current == null)
+			return 0;
+		if(current.left == null && current.right == null)
+			return 1;
+
+		return numOfLeavesHelper(current.left)+numOfLeavesHelper(current.right);
+
+
+	}
 
 }
