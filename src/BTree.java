@@ -165,22 +165,22 @@ class BTree {
 	
 	public BTree idealTopology(int[] a) {
 		BTree newTree = new BTree();
-		newTree.root = helper(a, 0, a.length-1);
+		newTree.root = idealTopologyhelper(a, 0, a.length-1);
 		return newTree;
 			
 
 	}
 
 
-	private Node helper(int[] a ,int lower, int upper) {
+	private Node idealTopologyhelper(int[] a ,int lower, int upper) {
 
 		if(lower>upper)
 			return null;
 		
 		int mid = (lower+upper)/2;
 		Node ras = new Node(a[mid]);
-		ras.left = helper(a, lower, mid-1);
-		ras.right = helper(a,mid+1 , upper);
+		ras.left = idealTopologyhelper(a, lower, mid-1);
+		ras.right = idealTopologyhelper(a,mid+1 , upper);
 		return ras;
 
 	}
@@ -216,6 +216,101 @@ class BTree {
 			return 1 + rightDepth;
 		return -1;
 	}
+	
+	public int size() {
+		return sizehelper(root);
+	
+	}
+	
+	private int sizehelper(Node current) {
+		if(current == null)
+			return 0;
+		
+	
+		return 1 + sizehelper(current.left) + sizehelper(current.right);
+		
+	}
+	
+	
+	public int numLeaves() {
+		return numLeaveshelper(root);
+		
+	}
+	private int numLeaveshelper(Node current) {
+		if(current == null)
+			return 0;
+		
+		if(current.left == null && current.right == null)
+			return 1;
+		
+		return numLeaveshelper(current.left) + numLeaveshelper(current.right);
+	}
+	
+//	public int sum() {
+//		return sumhelper(root);
+//		 
+//	 }
+//	
+//	private int sumhelper(Node current) {
+//		
+//		if(current == null)
+//			return 0;
+//		int totalSum = ((Integer) current.data).intValue();
+//		totalSum+= sumhelper(current.left);
+//		totalSum+= sumhelper(current.right);
+//		return totalsum;
+//		
+//	} 
+
+	
+	public boolean isBST() {
+		return isBSThelper(root);
+		
+	}
+	
+	private boolean isBSThelper(Node current) {
+		if(current == null)
+			return true;
+		if(current.left!=null && current.data.compareTo(current.left.data)<0 )
+			return false;
+		if(current.right!=null &&  current.data.compareTo(current.right.data)>0 )
+			return false;
+		
+		return isBSThelper(current.left) && isBSThelper(current.right);
+		
+	}
+	
+	public int numLeftChildNodes() {
+		return	numLeftChildNodeHelper(root);
+	
+	}
+	
+	private int numLeftChildNodeHelper(Node current) {
+		if(current == null)
+			return 0;
+		if(current.left != null && current.right== null)
+			return 1 + numLeftChildNodeHelper(current.left);
+		return numLeftChildNodeHelper(current.left) + numLeftChildNodeHelper(current.right);
+		
+	}
+	
+	 public int countOccur(Comparable key) {
+		return countOccurHelper(key,root);
+		 
+	 }
+	 
+	 private int countOccurHelper(Comparable key, Node current) {
+		 
+		 if(current == null)
+			 return 0;
+		 if(key.compareTo(current.data)==0)
+			 return 1+ countOccurHelper(key, current.left) +countOccurHelper(key, current.right);
+		 
+		 return countOccurHelper(key, current.left) +countOccurHelper(key, current.right);
+		 
+		 
+		 
+	 }
 
 	public int getSum(){
 		return getSumHelper(root);

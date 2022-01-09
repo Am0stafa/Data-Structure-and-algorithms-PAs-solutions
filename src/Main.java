@@ -1,4 +1,3 @@
-import java.util.HashSet;
 
 public class Main {
 
@@ -158,16 +157,8 @@ public class Main {
 	int array[] = {1,2,3,4,5,6,7,8,9,10};
 		BTree a = new BTree();
 		a =	a.idealTopology(array);
-		System.out.println(a.numOfLeaves());
-
-//		HashSet<Integer> a = new HashSet<Integer>();
-//		a.add(1);
-//		a.add(2);
-//		a.add(2);
-//		a.add(3);
-//		a.add(2);
-//		System.out.println(a);
-//
+		//a.displayTree();
+		System.out.println(a.level(1));
 
 	}
 	
