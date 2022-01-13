@@ -1,10 +1,13 @@
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Main {
 
 	public static void main(String[] args) {
 
 		
-		
+
+
 //		LinearArray a = new LinearArray(10);
 //		a.insertLast(3);
 //		a.insertLast(7);
@@ -119,7 +122,7 @@ public class Main {
 //		browsingHistory . printHistory ();
 //		//System . out . println (" Most ␣ viewed ␣ so ␣ far ␣ is ␣" + browsingHistory . search ());
 //		browsingHistory . removeLast (" 2014 -10 -07 " );
-//		System . out . println (" Currect ␣ browsing ␣ history :" );
+//		System . out . println (" Currect ␣ browsing  history :" );
 //		browsingHistory . printHistory ();
 //		browsingHistory . add (" http :// www . facebook . com / " );
 //		browsingHistory . add (" http :// www . youtube . com /" );
@@ -154,13 +157,13 @@ public class Main {
 //		b.insertFirst(5);
 //		b.insertFirst(6);
 //		b.insertFirst(7);
-	int array[] = {1,2,3,4,5,6,7,8,9,10};
-		BTree a = new BTree();
-		a =	a.idealTopology(array);
-		//a.displayTree();
-		System.out.println(a.level(1));
+//		int array[] = {1,2,3,4,5,6,7,8,9,10};
+//		BTree a = new BTree();
+//		a =	a.idealTopology(array);
+//		a.displayTree();
+//		a.leftView();
 
-	}
+}
 	
 
 //
@@ -625,8 +628,65 @@ public class Main {
 //				s1.push(temp.pop());
 // }	
 
+//	public static int shortestDistance(String word[], String word1, String word2){
+//		HashMap<String, ArrayList<Integer>> map = new HashMap<String, ArrayList<Integer>>();
+//		String s ="";
+//		int distance;
+//		for(int i =0; i<word.length; i++){
+//			s=word[i];
+//			if(map.get(s)==null){
+//				ArrayList<Integer> i1 = new ArrayList<Integer>();
+//				i1.add(i);
+//				map.put(s,i1);
+//			}
+//			else{
+//				ArrayList<Integer> i2 = map.get(s);
+//				i2.add(i);
+//				map.put(s,i2);
+//			}
+//		}
+//		ArrayList<Integer> a1 = map.get(word1);
+//		ArrayList<Integer> a2 = map.get(word2);
+//		int minValue =Integer.MAX_VALUE, value;
+//		for (int i =0; i<a1.size(); i++){
+//			for (int j=0; j<a2.size(); j++){
+//				value = Math.abs(a2.get(j) - a1.get(i));
+//				if(value < minValue)
+//					minValue = value;
+//
+//
+//			}
+//
+//		}
+//
+//	return minValue;
+//
+//
+//	}
+
+//	public static char freq(String s){
+//		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+//		char value=' ';
+//		for (int i=0; i<s.length(); i++){
+//			if(map.get(s.charAt(i))== null)
+//				map.put(s.charAt(i),1);
+//			else{
+//				int count =map.get(s.charAt(i));
+//				count++;
+//				map.put(s.charAt(i), count);
+//			}
+//		}
+//		for (int i=0; i<s.length(); i++) {
+//			if(map.get(s.charAt(i)) ==  1)
+//				return value = s.charAt(1);
+//		}
+//
+//
+//	return value;
+//
+//		}
 	
-	
+
 
 	
 	

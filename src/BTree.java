@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
 class Node{
 
 	public int data;
@@ -263,22 +267,22 @@ class BTree {
 //	} 
 
 	
-	public boolean isBST() {
-		return isBSThelper(root);
-		
-	}
-	
-	private boolean isBSThelper(Node current) {
-		if(current == null)
-			return true;
-		if(current.left!=null && current.data.compareTo(current.left.data)<0 )
-			return false;
-		if(current.right!=null &&  current.data.compareTo(current.right.data)>0 )
-			return false;
-		
-		return isBSThelper(current.left) && isBSThelper(current.right);
-		
-	}
+//	public boolean isBST() {
+//		return isBSThelper(root);
+//
+//	}
+//
+//	private boolean isBSThelper(Node current) {
+//		if(current == null)
+//			return true;
+//		if(current.left!=null && current.data.compareTo(current.left.data)<0 )
+//			return false;
+//		if(current.right!=null &&  current.data.compareTo(current.right.data)>0 )
+//			return false;
+//
+//		return isBSThelper(current.left) && isBSThelper(current.right);
+//
+//	}
 	
 	public int numLeftChildNodes() {
 		return	numLeftChildNodeHelper(root);
@@ -294,23 +298,23 @@ class BTree {
 		
 	}
 	
-	 public int countOccur(Comparable key) {
-		return countOccurHelper(key,root);
-		 
-	 }
-	 
-	 private int countOccurHelper(Comparable key, Node current) {
-		 
-		 if(current == null)
-			 return 0;
-		 if(key.compareTo(current.data)==0)
-			 return 1+ countOccurHelper(key, current.left) +countOccurHelper(key, current.right);
-		 
-		 return countOccurHelper(key, current.left) +countOccurHelper(key, current.right);
-		 
-		 
-		 
-	 }
+//	 public int countOccur(Comparable key) {
+//		return countOccurHelper(key,root);
+//
+//	 }
+//
+//	 private int countOccurHelper(Comparable key, Node current) {
+//
+//		 if(current == null)
+//			 return 0;
+//		 if(key.compareTo(current.data)==0)
+//			 return 1+ countOccurHelper(key, current.left) +countOccurHelper(key, current.right);
+//
+//		 return countOccurHelper(key, current.left) +countOccurHelper(key, current.right);
+//
+//
+//
+//	 }
 
 	public int getSum(){
 		return getSumHelper(root);
@@ -349,5 +353,119 @@ class BTree {
 
 
 	}
+	public int getHight(){
+		return getHightHelper(root);
 
+	}
+	private int getHightHelper(Node current){
+		if(current == null)
+			return 0;
+
+		return 1 + Math.max(getHightHelper(current.left),getHightHelper(current.right));
+
+	}
+
+	public ArrayList<Integer> printAtLevel(int level){
+		//return array
+		ArrayList<Integer> levelarray = new ArrayList<Integer>();
+		return printAtLevelHelper(root, level, levelarray);
+
+	}
+	private ArrayList<Integer> printAtLevelHelper(Node current , int level,ArrayList<Integer> levelarray){
+
+		if(current == null)
+			return null;
+		if(level ==0) {
+			levelarray.add(current.data);
+		}
+		printAtLevelHelper(current.left, level-1,levelarray );
+		printAtLevelHelper(current.right, level-1,levelarray );
+		return levelarray;
+
+	}
+	public void printElementAtlevel(int level){
+
+		printElementAtlevelHelper(root, level);
+
+	}
+	private void printElementAtlevelHelper(Node current , int level){
+
+		if(current == null)
+			return;
+		if(level ==0)
+			System.out.print(current.data+" ");
+
+		printElementAtlevelHelper(current.left , level-1);
+		printElementAtlevelHelper(current.right , level-1);
+
+	}
+	public void printAtEachLevel(){
+		printAtEachLevelHelper(root);
+
+
+	}
+	private void printAtEachLevelHelper(Node current){
+
+		if(current == null)
+			return;
+		int height = getHight();
+		for(int i =0; i<height; i++) {
+			printElementAtlevel(i);
+			System.out.println();
+		}
+
+	}
+	public void levelOrdertrav(){
+		Queue<Integer> levelq = new LinkedList<Integer>();
+
+		levelOrdertravHelper(root,levelq );
+
+	}
+	private void levelOrdertravHelper(Node current, Queue<Integer> levelq) {
+		if(current == null )
+			return;
+
+
+			levelq.add(current.data);
+
+				while(!(levelq.isEmpty())){
+					System.out.println(levelq.poll());
+					if(current.left != null)
+						levelq.add(current.left.data);
+					if(current.right != null)
+						levelq.add(current.right.data);
+
+				}
+
+
+
+
+	}
+	public void leftView(){
+		leftViewHelper(root , 0 );
+
+
+	}
+int limit =0;
+	private void leftViewHelper(Node current, int level){
+		if(current == null)
+			return;
+
+		if(level>=limit){
+			System.out.println(current.data);
+			limit++;
+		}
+
+		leftViewHelper(current.left , level+1);
+		leftViewHelper(current.right , level+1);
+
+	}
+
+	public void rightView(){
+
+
+	}
+	private void rightView(Node current){
+
+	}
 }
