@@ -5,7 +5,9 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		
+	HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+
+
 
 
 //		LinearArray a = new LinearArray(10);
