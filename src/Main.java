@@ -142,23 +142,24 @@ public class Main {
 //		browsingHistory . printHistory ();
 //		System . out . println (" Most ␣ viewed ␣ so ␣ far ␣ is ␣" + browsingHistory . search ());
 		
-//		LinkList a = new LinkList();
-//		a.insertLast(1);
-//		a.insertLast(2);
-//		a.insertLast(3);
-//		a.insertLast(5);
-//		a.insertLast(6);
-//		a.insertLast(7);
-//
-//		a.insertatN(4, 4);
-//
-//		System.out.println (a);
-//
-//		LinkList b = new LinkList();
-//
-//		b.insertFirst(5);
-//		b.insertFirst(6);
-//		b.insertFirst(7);
+		LinkList a = new LinkList();
+		a.insertLast(1);
+		a.insertLast(2);
+		a.insertLast(2);
+		a.insertLast(2);
+		a.insertLast(6);
+		a.insertLast(7);
+
+		LinkList b = new LinkList();
+
+		b.insertFirst(5);
+		b.insertFirst(6);
+		b.insertFirst(8);
+
+		a.removeDup();
+		System.out.println(a);
+
+
 //		int array[] = {1,2,3,4,5,6,7,8,9,10};
 //		BTree a = new BTree();
 //		a =	a.idealTopology(array);

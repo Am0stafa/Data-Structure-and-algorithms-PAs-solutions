@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 class Link {
 	public Object data;
 	public Link next;
@@ -94,7 +96,7 @@ class LinkList {
 		ncurr=head;
 		while(curr!=null){
 			ncurr=ncurr.next;
-				curr.next=prev;
+			curr.next=prev;
 			//zo2 wa7d
 			prev=curr;
 			curr=ncurr;
@@ -129,12 +131,13 @@ public LinkList merge(LinkList l){
 	Link current=head;
 	while(current.next!=null)
 	current=current.next;
+
 	current.next=l.head;
 	return o;
 	}
 
 	
-	
+	//O(n)
 	public void insertatN(int pos , Object data ) {
 		int poss =pos-2;
 		Link ncurr, curr;
@@ -161,5 +164,80 @@ public LinkList merge(LinkList l){
 		
 		
 	}
+
+//getting the middle value of a linklist without using a couter by making to pointer a and b and b moves twice as
+// fast as be
+
+	public Object getmid(){
+		Link a = head;
+		Link b = head.next;
+
+		while(b != null || b.next !=null){
+			a = a.next;
+			b = b.next.next;
+		}
+
+
+		return a;
+
+	}
+	//Mafe4 7aga esmaha .next w 7ot
+//bn7arak dayman el so8ayar 3l4n ywsal lel keber
+	public LinkList union(LinkList l) {
+		Link a = head;
+		Link b = l.head;
+		LinkList o = new LinkList();
+	int i=0;
+		while (a != null && b != null) {
+			if ((int) a.data > (int) b.data) {
+					o.insertLast(b);
+					b = b.next;
+			} else if ((int) a.data < (int) b.data) {
+				o.insertLast(a);
+				a = a.next;
+			} else {
+				o.insertLast(a);
+				a = a.next;
+				b = b.next;
+			}
+		 //in case we finished one early like in case [10,20,30] [1,2,3]
+		if(a!=null){
+			while (a!=null){
+				o.insertLast(a);
+				a= a.next;
+			}
+
+		}
+			if(b!=null){
+				while (b!=null){
+					o.insertLast(b);
+					b= b.next;
+				}
+
+			}
+
+		}
+		return o;
+	}
+	//must be sorted
+	public void removeDup(){
+		Link current = head;
+		Link ncurrent = head.next;
+		 while (current != null && ncurrent != null){
+		 	if(current.data!=ncurrent.data) {
+
+		 		current.next = ncurrent;
+		 		current = ncurrent;
+			}
+			 ncurrent = ncurrent.next;
+		 }
+
+	}
+
+
+
+
+
+
 	
 }
