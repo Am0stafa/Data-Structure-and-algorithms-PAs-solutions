@@ -167,12 +167,12 @@ public LinkList merge(LinkList l){
 
 //getting the middle value of a linklist without using a couter by making to pointer a and b and b moves twice as
 // fast as be
-
-	public Object getmid(){
+// at the end b will be pointing to a location twice as far from a
+	public Link getmid(){
 		Link a = head;
-		Link b = head.next;
+		Link b = head;
 
-		while(b != null || b.next !=null){
+		while(b.next != null || b.next.next !=null){
 			a = a.next;
 			b = b.next.next;
 		}
@@ -234,7 +234,82 @@ public LinkList merge(LinkList l){
 
 	}
 
+//detecting a loop just like finding the middle value we will make two pointers one move by one step and other move
+// by two steps(twice as fast) until they both meet which means we found a duplicate or they both are pointing to
+// same node which mean there is a loop
 
+	public boolean detectLoop(){
+		Link b;
+		Link a = b = head;
+
+		while (b.next !=null  && b.next.next!= null){
+			b = b.next.next;
+			a = a.next;
+			if(a.data == b.data)
+				return true;
+
+
+		}
+			return false;
+
+	}
+
+//1)slow pointer fast pointer technique to get the middle value
+//2)set the middle .next as second half
+//3)loop from the head and second half until the second half != null
+//4)check if the head.data != second half.data return false else contine moving both the head and the second half
+
+	public boolean firstEqualSecond(){
+		Link a = head;
+		Link b = head;
+		Link secondHalf;
+		Link first =head;
+
+		while(b.next!=null && b.next.next != null){
+			a=a.next;
+			b= b.next.next;
+		}
+		//as a will be standing exactly in the middle pos
+		secondHalf = a.next;
+
+		while(secondHalf != null){
+			if(first.data!=secondHalf.data)
+				return false;
+			secondHalf = secondHalf.next;
+			first = first.next;
+
+
+		}
+		return true;
+	}
+
+
+	public LinkList addTwoList(LinkList l2){
+		//first reverse both since it isnt doubly
+		this.Revese();
+		l2.Revese();
+		Link p1 = head;
+		Link p2 = l2.head;
+		int carry=0;
+		int sum =0;
+		LinkList result = new LinkList();
+		while(p1!=null || p2!=null){
+			//DONT FORGET IF NULL
+			sum = carry+(p1 != null ? (int)p1.data: 0) +(p2 != null ? (int)p2.data: 0);
+			carry = sum/10;
+			result.insertLast(sum%10);
+			if(p1 != null)
+				p1 = p1.next;
+			if(p2!= null)
+				p2 = p2.next;
+
+		}
+		if(carry != 0)
+			result.insertLast(carry);
+
+		result.Revese();
+		return result;
+	}
 
 
 

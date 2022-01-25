@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 class Node{
 
@@ -214,7 +215,8 @@ class BTree {
 		int leftDepth = level(cur.left, key);
 		if(leftDepth != -1){
 			//System.out.println(leftDepth);
-			return 1 + leftDepth;}
+			return 1 + leftDepth;
+		}
 		int rightDepth = level(cur.right, key);
 		if(rightDepth != -1)
 			return 1 + rightDepth;
@@ -353,6 +355,7 @@ class BTree {
 
 
 	}
+	//memo
 	public int getHight(){
 		return getHightHelper(root);
 
@@ -461,11 +464,83 @@ int limit =0;
 
 	}
 
-	public void rightView(){
+	public int getNode(){
+		return getNodeHelper(root);
 
 
 	}
-	private void rightView(Node current){
+	int counter =0;
+	private int getNodeHelper(Node current) {
+		if(current == null)
+			return 0;
+
+		if(current.left == null && current.right == null)
+			counter++;
+
+		 getNodeHelper(current.right) ;
+			getNodeHelper(current.left);
+	return counter;
+	}
+
+
+	public void pathOfSum(int sum){
 
 	}
+	int res =0;
+	Stack<Integer> stack = new Stack<>();
+	private void pathOfSumHelper(Node current, int sum){
+		if(current == null)
+			return;
+		if(sum == res){
+			System.out.println(stack);
+			return;
+		}
+		stack.push(current.data);
+			res+=(current.data);
+
+		pathOfSumHelper(current.left,sum);
+		pathOfSumHelper(current.right,sum);
+		stack.pop();
+			res-=current.data;
+
+
+	}
+
+	public Node lowestCommonAncestor(Node n1, Node n2){
+		return lowestCommonAncestorHelper(root, n1, n2);
+	}
+	Node left;
+	Node right;
+	private Node lowestCommonAncestorHelper(Node current,Node n1, Node n2){
+		if(current == null)
+			return null;
+		//search
+		if(current == n1 || current == n2)
+			return current;
+		left = lowestCommonAncestorHelper(current.left,n1,n2);
+		right = lowestCommonAncestorHelper(current.right,n1,n2);
+			if(left !=null && right != null)
+				return current;
+			else
+				return (left == null? right:left);
+			//as in the screenshot
+	}
+	public void printAllPaths(){
+
+
+	}
+	Stack<Integer> pph = new Stack<>();
+	private void printAllPathsHelper(Node current){
+		if(current == null)
+			return;
+		pph.push(current.data);
+		printAllPathsHelper(current.left);
+			if(current.left == null && current.right==null)
+				System.out.println(pph);
+			pph.pop();
+		printAllPathsHelper(current.right);
+
+
+	}
+
 }
