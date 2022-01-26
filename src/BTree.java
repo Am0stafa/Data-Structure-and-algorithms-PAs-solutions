@@ -542,5 +542,83 @@ int limit =0;
 
 
 	}
+	//reverse a binary tree
+	public void mirror(){
+
+
+	}
+	private void mirrorHelpper(Node current){
+		if(current == null)
+			return;
+		Node temp = current.right;
+		current.right = current.left;
+		current.left = temp;
+
+
+		mirrorHelpper(current.left);
+		mirrorHelpper(current.right);
+	}
+	//check if two trees are identical
+	public boolean identical(Node current){
+		return 	identicalHelper(current ,root);
+	}
+	private boolean identicalHelper(Node current,Node ourRoot){
+		if(current == null && ourRoot == null)
+			return true;
+		if(current == null || ourRoot == null)
+			return false;
+		if(current.data==ourRoot.data)
+			return true;
+
+
+		return  identicalHelper(current.left, ourRoot.left) && identicalHelper(current.right, ourRoot.right);
+	}
+	public boolean isFoldable(Node current){
+		if(current == null)
+			return true;
+		return isFoldableHelper(current.left , current.right);
+	}
+	private boolean isFoldableHelper(Node leftNode , Node rightNode){
+		if(leftNode == null && rightNode == null)
+			return true;
+		if(leftNode == null || rightNode == null )
+			return false;
+
+		return isFoldableHelper(leftNode.left, rightNode.right) && isFoldableHelper(leftNode.right , rightNode.left);
+	}
+	public boolean sameStructure(Node current){
+		return 	sameStructure(current , root);
+	}
+	public boolean sameStructure(Node tree1 , Node tree2){
+		if(tree1 == null && tree2 == null)
+			return true;
+		if(tree1 == null || tree2 == null)
+			return false;
+		return sameStructure(tree1.left , tree2.left) && sameStructure(tree1.right, tree2.right);
+	}
+	public boolean isIsomorphic(Node current){
+		return isIsomorphicHelper(root, current);
+	}
+	private boolean isIsomorphicHelper(Node tree1, Node tree2){
+		if(tree1 == null && tree2 == null)
+			return true;
+		if(tree1 == null || tree2 == null)
+			return false;
+		if(tree1.data != tree2.data )
+			return false;
+	return 	isIsomorphicHelper(tree1.left, tree2.left) && isIsomorphicHelper(tree1.right , tree2.left) ||
+			isIsomorphicHelper(tree1.left , tree2.right) && isIsomorphicHelper(tree1.right,tree2.left);
+	}
+	public int getMinDistance(){
+		return getMinDistanceHelper(root);
+	}
+	private int getMinDistanceHelper(Node current){
+		if(current == null)
+			return Integer.MAX_VALUE;
+		if(current.left == null && current.right == null)
+			return 0;
+		return 1 + Math.min(getMinDistanceHelper(current.right), getMinDistanceHelper(current.left));
+	}
+
 
 }
